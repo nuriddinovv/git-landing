@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #EDCDA0;
+}
+
+body {
+  background: linear-gradient(180deg, #EDCDA0 0%, #71CCD4 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.text-near-black {
+  color: #0B0B0B;
+}
+
+.text-secondary {
+  color: #445567;
+}
+
+.bg-orange-accent {
+  background-color: #E4952B;
+}
+
+.bg-teal-accent {
+  background-color: #1BADAC;
+}
+
+.text-teal-accent {
+  color: #1BADAC;
+}
+
+.border-teal-accent {
+  border-color: #1BADAC;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
