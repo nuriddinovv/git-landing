@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { translations } from '../../translations';
 
-type Language = 'en' | 'ru';
+type Language = 'en' | 'ru' | 'uz';
 
 export default function Home() {
     const [lang, setLang] = useState<Language>('en');
@@ -15,7 +15,7 @@ export default function Home() {
     // Load language from localStorage after mount
     useEffect(() => {
         const saved = localStorage.getItem('guds_lang');
-        if (saved === 'ru' || saved === 'en') {
+        if (saved === 'ru' || saved === 'en' || saved === 'uz') {
             setLang(saved as Language);
         }
     }, []);
@@ -27,7 +27,11 @@ export default function Home() {
         document.documentElement.lang = lang;
     }, [lang]);
 
-    const toggleLang = () => setLang(l => l === 'en' ? 'ru' : 'en');
+    const toggleLang = () => setLang(l => {
+        if (l === 'en') return 'ru';
+        if (l === 'ru') return 'uz';
+        return 'en';
+    });
 
     const handleWaitlistSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -76,7 +80,7 @@ export default function Home() {
                             onClick={toggleLang}
                             className="text-xs font-bold px-3 py-1.5 rounded-full hover:bg-black/5 uppercase tracking-wider transition-all"
                         >
-                            {lang === 'en' ? 'RU' : 'EN'}
+                            {lang === 'en' ? 'EN' : lang === 'ru' ? 'RU' : 'UZ'}
                         </button>
                         <button
                             onClick={() => setIsModalOpen(true)}
@@ -132,18 +136,18 @@ export default function Home() {
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-near-black mb-10 leading-[1.05]">
                         {t.hero.title}
                     </h1>
-                    <div className="space-y-4 mb-14 text-secondary font-medium md:text-lg">
-                        <div className="flex items-center justify-center gap-3">
-                            <span className="w-2 h-2 rounded-full bg-teal-accent"></span>
-                            <p>{t.hero.wText}</p>
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-14 text-secondary font-medium md:text-lg max-w-4xl mx-auto px-4">
+                        <div className="flex items-start gap-3 text-left">
+                            <span className="w-2 h-2 rounded-full bg-teal-accent flex-shrink-0 mt-2"></span>
+                            <p className="leading-tight">{t.hero.wText}</p>
                         </div>
-                        <div className="flex items-center justify-center gap-3">
-                            <span className="w-2 h-2 rounded-full bg-orange-accent"></span>
-                            <p>{t.hero.eText}</p>
+                        <div className="flex items-start gap-3 text-left">
+                            <span className="w-2 h-2 rounded-full bg-orange-accent flex-shrink-0 mt-2"></span>
+                            <p className="leading-tight">{t.hero.eText}</p>
                         </div>
-                        <div className="flex items-center justify-center gap-3">
-                            <span className="w-2 h-2 rounded-full bg-teal-accent opacity-50"></span>
-                            <p>{t.hero.noInter}</p>
+                        <div className="flex items-start gap-3 text-left">
+                            <span className="w-2 h-2 rounded-full bg-teal-accent opacity-50 flex-shrink-0 mt-2"></span>
+                            <p className="leading-tight">{t.hero.noInter}</p>
                         </div>
                     </div>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
@@ -237,13 +241,13 @@ export default function Home() {
             <section className="py-24 px-4 bg-black/5">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-3xl font-extrabold text-near-black text-center mb-16">{t.gtm.title}</h2>
-                    <div className="grid md:grid-cols-3 gap-6 mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12">
                         {[t.gtm.social, t.gtm.ads, t.gtm.google].map((text, i) => (
-                            <div key={i} className="bg-white p-8 rounded-3xl shadow-sm flex items-center gap-5">
-                                <div className="w-12 h-12 bg-[#CDE5F3] rounded-2xl flex items-center justify-center flex-shrink-0">
-                                    <div className="w-5 h-5 bg-teal-accent rounded-full animate-pulse"></div>
+                            <div key={i} className="bg-white p-6 md:p-8 rounded-2xl md:rounded-[32px] shadow-sm flex items-center gap-4 md:gap-6">
+                                <div className="w-10 h-10 md:w-12 md:h-12 bg-[#CDE5F3] rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <div className="w-4 h-4 md:w-5 md:h-5 bg-teal-accent rounded-full animate-pulse"></div>
                                 </div>
-                                <span className="font-bold text-near-black leading-tight">{text}</span>
+                                <span className="font-bold text-near-black leading-tight text-sm md:text-base">{text}</span>
                             </div>
                         ))}
                     </div>
@@ -268,7 +272,7 @@ export default function Home() {
                             <div className="bg-black/5 py-4 rounded-2xl text-center font-bold text-gray-400 uppercase tracking-widest">{t.nav.comingSoon}</div>
                         </div>
                         <div className="glass p-12 rounded-[40px] relative overflow-hidden transform scale-105 shadow-2xl">
-                            <div className="absolute top-8 right-[-32px] bg-orange-accent text-white py-1.5 px-10 rotate-45 font-black text-[10px] tracking-widest">MOST POPULAR</div>
+                            <div className="absolute top-8 right-[-32px] bg-orange-accent text-white py-1.5 px-10 rotate-45 font-black text-[10px] tracking-widest">{t.pricing.pricingNote}</div>
                             <h3 className="text-2xl font-bold text-near-black mb-2">{t.pricing.business}</h3>
                             <p className="text-secondary mb-10">{t.pricing.businessDesc}</p>
                             <div className="text-5xl font-black text-near-black mb-12">TBA<span className="text-xl text-secondary font-bold ml-2">/mo</span></div>
@@ -307,27 +311,27 @@ export default function Home() {
                         <h2 className="text-4xl md:text-5xl font-extrabold text-near-black mb-6">{t.contact.title}</h2>
                     </div>
                     <div className="grid md:grid-cols-3 gap-6">
-                        <div className="glass p-10 rounded-[32px] text-center">
-                            <div className="w-14 h-14 bg-teal-accent/10 text-teal-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <a href={`tel:${t.contact.phone.replace(/\s/g, '')}`} className="glass p-10 rounded-[32px] text-center hover:scale-[1.02] transition-all group">
+                            <div className="w-14 h-14 bg-teal-accent/10 text-teal-accent rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-teal-accent group-hover:text-white transition-colors">
                                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                             </div>
-                            <p className="text-xs font-black text-secondary tracking-widest uppercase mb-2">PHONE</p>
+                            <p className="text-xs font-black text-secondary tracking-widest uppercase mb-2">{t.contact.phoneLabel}</p>
                             <p className="text-xl font-extrabold text-near-black">{t.contact.phone}</p>
-                        </div>
-                        <div className="glass p-10 rounded-[32px] text-center">
-                            <div className="w-14 h-14 bg-orange-accent/10 text-orange-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        </a>
+                        <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.contact.location)}`} target="_blank" rel="noopener noreferrer" className="glass p-10 rounded-[32px] text-center hover:scale-[1.02] transition-all group">
+                            <div className="w-14 h-14 bg-orange-accent/10 text-orange-accent rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-accent group-hover:text-white transition-colors">
                                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                             </div>
-                            <p className="text-xs font-black text-secondary tracking-widest uppercase mb-2">LOCATION</p>
+                            <p className="text-xs font-black text-secondary tracking-widest uppercase mb-2">{t.contact.locationLabel}</p>
                             <p className="text-xl font-extrabold text-near-black">{t.contact.location}</p>
-                        </div>
-                        <div className="glass p-10 rounded-[32px] text-center">
-                            <div className="w-14 h-14 bg-teal-accent/10 text-teal-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        </a>
+                        <a href={`mailto:${t.contact.email}`} className="glass p-10 rounded-[32px] text-center hover:scale-[1.02] transition-all group">
+                            <div className="w-14 h-14 bg-teal-accent/10 text-teal-accent rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-teal-accent group-hover:text-white transition-colors">
                                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                             </div>
-                            <p className="text-xs font-black text-secondary tracking-widest uppercase mb-2">EMAIL</p>
+                            <p className="text-xs font-black text-secondary tracking-widest uppercase mb-2">{t.contact.emailLabel}</p>
                             <p className="text-xl font-extrabold text-near-black">{t.contact.email}</p>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -369,11 +373,7 @@ export default function Home() {
                     </div>
                     <div className="border-t border-black/5 pt-12 flex flex-col md:flex-row items-center justify-between gap-6 text-secondary font-bold text-sm">
                         <p>© {new Date().getFullYear()} GUDS App. {t.footer.rights}</p>
-                        <div className="flex gap-8">
-                            <a href="#" className="hover:text-teal-accent">TELEGRAM</a>
-                            <a href="#" className="hover:text-teal-accent">INSTAGRAM</a>
-                            <a href="#" className="hover:text-teal-accent">TIKTOK</a>
-                        </div>
+
                     </div>
                 </div>
             </footer>

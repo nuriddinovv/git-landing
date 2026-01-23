@@ -1,4 +1,3 @@
-
 export const translations = {
   en: {
     nav: {
@@ -64,6 +63,7 @@ export const translations = {
     pricing: {
       title: "Pricing",
       subtitle: "Simple, transparent models. Coming soon.",
+      pricingNote: "MOST POPULAR",
       free: "Free (Beta)",
       freeDesc: "For initial matching and testing",
       business: "Business",
@@ -81,6 +81,9 @@ export const translations = {
     },
     contact: {
       title: "Contact Us",
+      phoneLabel: "PHONE",
+      locationLabel: "LOCATION",
+      emailLabel: "EMAIL",
       phone: "+998 90 011 71 44",
       location: "Eski Sarikol passage, Mirabad",
       email: "hello@guds.app"
@@ -165,6 +168,7 @@ export const translations = {
     pricing: {
       title: "Цены",
       subtitle: "Прозрачные условия. Скоро запуск.",
+      pricingNote: "ПОПУЛЯРНО",
       free: "Бесплатно (Beta)",
       freeDesc: "Для первых пользователей и тестирования",
       business: "Бизнес",
@@ -182,8 +186,11 @@ export const translations = {
     },
     contact: {
       title: "Контакты",
+      phoneLabel: "ТЕЛЕФОН",
+      locationLabel: "АДРЕС",
+      emailLabel: "EMAIL",
       phone: "+998 90 011 71 44",
-      location: "Eski Sarikol passage, Mirabad",
+      location: "Mirabad, Eski Sarikol passage",
       email: "hello@guds.app"
     },
     waitlist: {
@@ -200,6 +207,111 @@ export const translations = {
       tagline: "Прямая связь между работниками и работодателями.",
       legal: ["Политика конфиденциальности", "Условия использования"],
       rights: "Все права защищены."
+    }
+  },
+  uz: {
+    nav: {
+      workers: "Ishchilar uchun",
+      employers: "Ish beruvchilar uchun",
+      how: "Qanday ishlaydi",
+      pricing: "Narxlar",
+      faq: "FAQ",
+      contact: "Aloqa",
+      join: "Ro'yxatga qo'shilish",
+      comingSoon: "Tez kunda"
+    },
+    hero: {
+      title: "Ishni tez toping. Ishchilarni bir zumda yollang.",
+      wText: "Ishchilar: 1 kunlik yoki doimiy ishni tezkor izlash",
+      eText: "Ish beruvchilar: tayyor ishchilarga doimiy kirish imkoniyati",
+      noInter: "Vositachilarsiz (to'g'ridan-to'g'ri bog'lanish)",
+      ctaPrimary: "Ro'yxatga qo'shilish",
+      ctaSecondary: "Biz bilan aloqa",
+      badge: "TEZ KUNDA / COMING SOON"
+    },
+    trust: [
+      "To'g'ridan-to'g'ri yollash",
+      "1 kunlik ishlar",
+      "Tasdiqlangan profillar",
+      "Tezkor moslashuv"
+    ],
+    benefits: {
+      workers: {
+        title: "Ishchilar uchun",
+        items: [
+          "Yaqiningizda 1 kunlik smena yoki uzoq muddatli ish toping",
+          "Agentlik to'lovlari yoki vositachilar yo'q",
+          "Ish beruvchilar bilan to'g'ridan-to'g'ri muloqot",
+          "Faqat tasdiqlangan kompaniyalar"
+        ]
+      },
+      employers: {
+        title: "Ish beruvchilar uchun",
+        items: [
+          "Hududingizdagi tayyor ishchilarga bir zumda kirish",
+          "Shoshilinch vazifalar uchun bir necha daqiqada yollash",
+          "Ishchilarni to'g'ridan-to'g'ri boshqarish",
+          "Reyting va sharhlar tizimi"
+        ]
+      }
+    },
+    howItWorks: {
+      title: "Qanday ishlaydi",
+      steps: [
+        { t: "Profil yaratish", d: "Ishchi yoki ish beruvchi sifatida tezkor sozlash" },
+        { t: "Topish / Joylash", d: "Ishlarni ko'ring yoki o'z vazifangizni joylang" },
+        { t: "Ishga kirishish", d: "Bir zumda mos keling va bugunoq ishni boshlang" }
+      ]
+    },
+    gtm: {
+      title: "Biz qanday o'samiz",
+      social: "SMM TikTok/Instagram + bloggerlar",
+      ads: "Telegram/Discord/Reddit/Twitter-da reklamalar",
+      google: "Google Ads (yuqori samarali video)",
+      keywords: "Targeting: Qurilish, Logistika, Chakana savdo, Tadbirlar"
+    },
+    pricing: {
+      title: "Narxlar",
+      subtitle: "Oddiy va shaffof modellar. Tez kunda.",
+      pricingNote: "ENG MASHHUR",
+      free: "Bepul (Beta)",
+      freeDesc: "Dastlabki moslashuv va sinov uchun",
+      business: "Biznes",
+      businessDesc: "Yuqori hajmli yollash va ustuvor qo'llab-quvvatlash"
+    },
+    faq: {
+      title: "Ko'p beriladigan savollar",
+      items: [
+        { q: "GUDS bepulmi?", a: "Beta-loyihamiz davomida GUDS ishchilar va ish beruvchilar uchun mutlaqo bepul." },
+        { q: "To'lov qanday amalga oshiriladi?", a: "To'lovlar ishchi va ish beruvchi o'rtasida to'g'ridan-to'g'ri amalga oshiriladi. GUDS - bu ulovchi platforma." },
+        { q: "Qanday ishlar mavjud?", a: "Biz jismoniy mehnatdan tortib, doimiy ofis rollarigacha bo'lgan sohalarni qamrab olamiz." },
+        { q: "Bu xavfsiz qanchalik?", a: "Biz ishonchli hamjamiyatni ta'minlash uchun profillarni tasdiqlaymiz va reyting tizimidan foydalanamiz." },
+        { q: "Qachon ishga tushadi?", a: "Biz tez orada ishga tushamiz. Erta kirish uchun kutish ro'yxatiga qo'shiling!" }
+      ]
+    },
+    contact: {
+      title: "Biz bilan bog'laning",
+      phoneLabel: "TELEFON",
+      locationLabel: "MANZIL",
+      emailLabel: "EMAIL",
+      phone: "+998 90 011 71 44",
+      location: "Eski Sariqul ko'chasi, Mirobod",
+      email: "hello@guds.app"
+    },
+    waitlist: {
+      title: "Ro'yxatga qo'shilish",
+      name: "Ismingiz",
+      contact: "Telefon yoki Email",
+      role: "Men...",
+      worker: "Ishchiman",
+      employer: "Ish beruvchiman",
+      submit: "Hozir qo'shiling",
+      success: "Rahmat! Tez orada sizga xabar beramiz."
+    },
+    footer: {
+      tagline: "Ishchilar va ish beruvchilar o'rtasidagi to'g'ridan-to'g'ri aloqa.",
+      legal: ["Maxfiylik siyosati", "Foydalanish shartlari"],
+      rights: "Barcha huquqlar himoyalangan."
     }
   }
 };
