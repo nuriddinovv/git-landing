@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { translations } from '../../translations';
+import { formatPrice } from '../lib/currency';
 
 type Language = 'en' | 'ru' | 'uz';
 
@@ -268,14 +269,14 @@ export default function Home() {
                         <div className="glass p-12 rounded-[40px] opacity-70 cursor-not-allowed">
                             <h3 className="text-2xl font-bold text-near-black mb-2">{t.pricing.free}</h3>
                             <p className="text-secondary mb-10">{t.pricing.freeDesc}</p>
-                            <div className="text-5xl font-black text-near-black mb-12">$0<span className="text-xl text-secondary font-bold ml-2">/mo</span></div>
+                            <div className="text-5xl font-black text-near-black mb-12">{formatPrice(t.pricing.freePrice as number, lang)}<span className="text-xl text-secondary font-bold ml-2">{t.pricing.freePriceUnit}</span></div>
                             <div className="bg-black/5 py-4 rounded-2xl text-center font-bold text-gray-400 uppercase tracking-widest">{t.nav.comingSoon}</div>
                         </div>
                         <div className="glass p-12 rounded-[40px] relative overflow-hidden transform scale-105 shadow-2xl">
                             <div className="absolute top-8 right-[-32px] bg-orange-accent text-white py-1.5 px-10 rotate-45 font-black text-[10px] tracking-widest">{t.pricing.pricingNote}</div>
                             <h3 className="text-2xl font-bold text-near-black mb-2">{t.pricing.business}</h3>
                             <p className="text-secondary mb-10">{t.pricing.businessDesc}</p>
-                            <div className="text-5xl font-black text-near-black mb-12">TBA<span className="text-xl text-secondary font-bold ml-2">/mo</span></div>
+                            <div className="text-5xl font-black text-near-black mb-12">{t.pricing.businessPrice as string}<span className="text-xl text-secondary font-bold ml-2">{t.pricing.businessPriceUnit}</span></div>
                             <div className="bg-black/5 py-4 rounded-2xl text-center font-bold text-gray-400 uppercase tracking-widest">{t.nav.comingSoon}</div>
                         </div>
                     </div>

@@ -66,8 +66,12 @@ export const translations = {
       pricingNote: "MOST POPULAR",
       free: "Free (Beta)",
       freeDesc: "For initial matching and testing",
+      freePrice: 0,
+      freePriceUnit: "/mo",
       business: "Business",
-      businessDesc: "High volume hiring & priority support"
+      businessDesc: "High volume hiring & priority support",
+      businessPrice: "TBA",
+      businessPriceUnit: "/mo"
     },
     faq: {
       title: "FAQ",
@@ -171,8 +175,12 @@ export const translations = {
       pricingNote: "ПОПУЛЯРНО",
       free: "Бесплатно (Beta)",
       freeDesc: "Для первых пользователей и тестирования",
+      freePrice: 0,
+      freePriceUnit: "/мес",
       business: "Бизнес",
-      businessDesc: "Массовый найм и приоритетная поддержка"
+      businessDesc: "Массовый найм и приоритетная поддержка",
+      businessPrice: "TBA",
+      businessPriceUnit: "/мес"
     },
     faq: {
       title: "Часто задаваемые вопросы",
@@ -276,8 +284,12 @@ export const translations = {
       pricingNote: "ENG MASHHUR",
       free: "Bepul (Beta)",
       freeDesc: "Dastlabki moslashuv va sinov uchun",
+      freePrice: 0,
+      freePriceUnit: "/oy",
       business: "Biznes",
-      businessDesc: "Yuqori hajmli yollash va ustuvor qo'llab-quvvatlash"
+      businessDesc: "Yuqori hajmli yollash va ustuvor qo'llab-quvvatlash",
+      businessPrice: "TBA",
+      businessPriceUnit: "/oy"
     },
     faq: {
       title: "Ko'p beriladigan savollar",
