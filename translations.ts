@@ -105,7 +105,7 @@ export const translations = {
       emailLabel: "EMAIL",
       phone: "+998 90 011 71 44",
       location: "Eski Sarikol passage, Mirabad",
-      email: "hello@guds.app",
+      email: "gudsproject1@guds.inc",
     },
     waitlist: {
       title: "Join the Waitlist",
@@ -234,7 +234,7 @@ export const translations = {
       emailLabel: "EMAIL",
       phone: "+998 90 011 71 44",
       location: "Mirabad, Eski Sarikol passage",
-      email: "hello@guds.app",
+      email: "gudsproject1@guds.inc",
     },
     waitlist: {
       title: "Список ожидания",
@@ -367,7 +367,7 @@ export const translations = {
       emailLabel: "EMAIL",
       phone: "+998 90 011 71 44",
       location: "Eski Sariqul ko'chasi, Mirobod",
-      email: "hello@guds.app",
+      email: "gudsproject1@guds.inc",
     },
     waitlist: {
       title: "Ro'yxatga qo'shilish",
